@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>渲染组件</title>
+    <script src='../build/react.development.js'></script>
+    <script src="../build/react-dom.development.js"></script>
+    <script src="../build/babel.min.js"></script>
+</head>
+<body>
+    <div id='example'></div>
+
+    <script type="text/babel">
+
+        function Welcome(props) {
+            return <h1>Hello, {props.name}</h1>
+        }
+
+        
+        // const element =(
+        // <div>
+        //     <Welcome name='Sara'/>
+        //     <Welcome name='Cahal'/>
+        //     <Welcome name='Edite'/>
+        // </div>
+        // )
+        
+        function App() {
+        return (
+            <div>
+                <Welcome name='Sara'/>
+                <Welcome name='Cahal'/>
+                <Welcome name='Edite'/>
+            </div>
+        )
+    }
+
+        ReactDOM.render(
+            //element,
+            <App/>,
+            document.getElementById('example')
+        )
+    </script>
+
+</body>
+</html>
