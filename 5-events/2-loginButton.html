@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>事件处理</title>
+    <script src='../build/react.development.js'></script>
+    <script src="../build/react-dom.development.js"></script>
+    <script src="../build/babel.min.js"></script>
+</head>
+<body>
+    <div id='example'></div>
+
+    <script type="text/babel">
+
+        class LoginButton extends React.Component {
+            constructor(props) {
+                super(props)
+
+                this.state = {isToggleOn:true}
+
+            }
+
+            // 此语法确保 `handleClick` 内的 `this` 已被绑定。
+            // 注意: 这是 *实验性* 语法。
+            handleClick = () => {
+                this.setState(prevState => ({
+                    isToggleOn:!prevState.isToggleOn
+                }) )
+                console.log("this is", this);
+            }
+           
+            render() {
+                return (
+                    <button onClick={this.handleClick}> 
+                       Click me
+                    </button>
+                )
+            }
+        }
+
+       ReactDOM.render (
+            
+           <LoginButton/>,
+            document.getElementById('example')
+            
+        )
+
+    </script>
+
+   
+</body>
+</html>
